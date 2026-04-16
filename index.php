@@ -14,17 +14,17 @@ $res = mysqli_query($conn, "SELECT * FROM id");
 
 while ($r = mysqli_fetch_assoc($res)){
     echo 
-    $r['nome'] . " | " .
-    $r['documento'] ." | " .  
-    $r['email'] . " | " . 
-    $r['telefone'] . " | " . 
-    $r['cep'] . " | " . 
-    $r['estado'] . " | " .
-    $r['cidade'] . " | " .
-    $r['bairro'] . " | " .
-    $r['logradouro'] . " | " .
-    $r['numero'] . " | " .
-    $r['complemento'] . "<br>";
+    $r['Nome'] . " | " .
+    $r['Documento'] ." | " .  
+    $r['Email'] . " | " . 
+    $r['Telefone'] . " | " . 
+    $r['CEP'] . " | " . 
+    $r['Estado'] . " | " .
+    $r['Cidade'] . " | " .
+    $r['Bairro'] . "  " .
+    $r['Logradouro'] . " | " .
+    $r['Numero'] . " | " .
+    $r['Complemento'] . "<br>";
 }
 
 ?>
