@@ -46,29 +46,69 @@
 	if(isset($_REQUEST['nome']) and $_REQUEST['nome']!=""){
 		$condition	.=	' AND nome LIKE "%'.$_REQUEST['nome'].'%" ';
 	}
+	if(isset($_REQUEST['documento']) and $_REQUEST['email']!=""){
+		$condition	.=	' AND documento LIKE "%'.$_REQUEST['documento'].'%" ';
+	}
 	if(isset($_REQUEST['email']) and $_REQUEST['email']!=""){
 		$condition	.=	' AND email LIKE "%'.$_REQUEST['email'].'%" ';
 	}
 	if(isset($_REQUEST['telefone']) and $_REQUEST['telefone']!=""){
-		$condition	.=	' AND telefone LIKE "%'.$_REQUEST['telefone'].'%" ';
-	}
-	if(isset($_REQUEST['df']) and $_REQUEST['df']!=""){
 
-		$condition	.=	' AND DATE(dt)>="'.$_REQUEST['df'].'" ';
+		$condition	.=	' AND DATE(telefone)>="'.$_REQUEST['telefone'].'" ';
 
 	}
-	if(isset($_REQUEST['dt']) and $_REQUEST['dt']!=""){
+	if(isset($_REQUEST['cep']) and $_REQUEST['cep']!=""){
 
-		$condition	.=	' AND DATE(dt)<="'.$_REQUEST['dt'].'" ';
+		$condition	.=	' AND DATE(cep)<="'.$_REQUEST['cep'].'" ';
+
+	}
+	if(isset($_REQUEST['estado']) and $_REQUEST['estado']!=""){
+
+		$condition	.=	' AND DATE(estado)<="'.$_REQUEST['estado'].'" ';
+
+	}
+	if(isset($_REQUEST['cidade']) and $_REQUEST['cidade']!=""){
+
+		$condition	.=	' AND DATE(cidade)<="'.$_REQUEST['cidade'].'" ';
+
+	}
+	if(isset($_REQUEST['bairro']) and $_REQUEST['bairro']!=""){
+
+		$condition	.=	' AND DATE(bairro)<="'.$_REQUEST['bairro'].'" ';
+
+	}
+	if(isset($_REQUEST['logradouro']) and $_REQUEST['logradouro']!=""){
+
+		$condition	.=	' AND DATE(logradouro)<="'.$_REQUEST['logradouro'].'" ';
+
+	}
+	if(isset($_REQUEST['numero']) and $_REQUEST['numero']!=""){
+
+		$condition	.=	' AND DATE(numero)<="'.$_REQUEST['numero'].'" ';
+
+	}
+	if(isset($_REQUEST['complemento']) and $_REQUEST['complemento']!=""){
+
+		$condition	.=	' AND DATE(complemento)<="'.$_REQUEST['complemento'].'" ';
+
+	}
+		if(isset($_REQUEST['status']) and $_REQUEST['status']!=""){
+
+		$condition	.=	' AND DATE(status)<="'.$_REQUEST['status'].'" ';
+
+	}
+		if(isset($_REQUEST['dataderegistro']) and $_REQUEST['dataderegistro']!=""){
+
+		$condition	.=	' AND DATE(dataderegistro)<="'.$_REQUEST['dataderegistro'].'" ';
 
 	}
 	
-	$userData	=	$db->getAllRecords('dadoscliente','*',$condition,'ORDER BY id DESC');
+	$userData	=	$db->getAllRecords('formclientes','*',$condition,'ORDER BY nome DESC');
 	?>
    	<div class="container">
 		<h1><a href="#">PHP CRUD em Bootstrap Pesquisa </a></h1>
 		<div class="card">
-			<div class="card-header"><i class="bi bi-globe"></i> <strong>Procurar cliente</strong> <a href="add-users.php" class="float-end btn btn-dark btn-sm"><i class="bi bi-plus-circle"></i> Adicionar clientes</a></div>
+			<div class="card-header"><i class="bi bi-globe"></i> <strong>Procurar cliente</strong> <a href="add_user.php" class="float-end btn btn-dark btn-sm"><i class="bi bi-plus-circle"></i> Adicionar clientes</a></div>
 			<div class="card-body">
 				<?php
 				if(isset($_REQUEST['msg']) and $_REQUEST['msg']=="rds"){
@@ -93,6 +133,12 @@
 							</div>
 							<div class="col-sm-2">
 								<div class="form-group">
+									<label>CPF/CPNJ do cliente</label>
+									<input type="number" name="documento" id="documento" class="form-control" value="<?php echo isset($_REQUEST['documento'])?$_REQUEST['documento']:''?>" placeholder="Digite o CPF/CNPJ">
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="form-group">
 									<label>E-mail do cliente</label>
 									<input type="email" name="email" id="email" class="form-control" value="<?php echo isset($_REQUEST['email'])?$_REQUEST['email']:''?>" placeholder="Digite o E-mail">
 								</div>
@@ -100,19 +146,71 @@
 							<div class="col-sm-2">
 								<div class="form-group">
 									<label>Telefone do cliente</label>
-									<input type="tel" name="telefone" id="telefone" class="form-control" value="<?php echo isset($_REQUEST['telefone'])?$_REQUEST['telefone']:''?>" placeholder="Digite o telefone">
+									<input type="number" name="telefone" id="telefone" class="form-control" value="<?php echo isset($_REQUEST['telefone'])?$_REQUEST['telefone']:''?>" placeholder="Digite o Telefone">
 								</div>
 							</div>
+							<div class="col-sm-2">
+								<div class="form-group">
+									<label>CEP do cliente</label>
+									<input type="number" name="cep" id="cep" class="form-control" value="<?php echo isset($_REQUEST['cep'])?$_REQUEST['cep']:''?>" placeholder="Digite o CEP">
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="form-group">
+									<label>Estado do cliente</label>
+									<input type="text" name="estado" id="estado" class="form-control" value="<?php echo isset($_REQUEST['estado'])?$_REQUEST['estado']:''?>" placeholder="Digite o Estado">
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="form-group">
+									<label>Cidade do cliente</label>
+									<input type="text" name="cidade" id="cidade" class="form-control" value="<?php echo isset($_REQUEST['cidade'])?$_REQUEST['cidade']:''?>" placeholder="Digite a Cidade">
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="form-group">
+									<label>Bairro do cliente</label>
+									<input type="text" name="bairro" id="bairro" class="form-control" value="<?php echo isset($_REQUEST['bairro'])?$_REQUEST['bairro']:''?>" placeholder="Digite o Bairro">
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="form-group">
+									<label>Logradouro do cliente</label>
+									<input type="text" name="logradouro" id="logradouro" class="form-control" value="<?php echo isset($_REQUEST['logradouro'])?$_REQUEST['logradouro']:''?>" placeholder="Digite o Logradouro">
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="form-group">
+									<label>Número do cliente</label>
+									<input type="number" name="numero" id="numero" class="form-control" value="<?php echo isset($_REQUEST['numero'])?$_REQUEST['numero']:''?>" placeholder="Digite o Número">
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="form-group">
+									<label>Complemento do cliente</label>
+									<input type="text" name="complemento" id="complemento" class="form-control" value="<?php echo isset($_REQUEST['complemento'])?$_REQUEST['complemento']:''?>" placeholder="Digite o Complemento">
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="form-group">
+									<label>Status do cliente</label>
+									<select>
+									<option>Pendente</option>
+									<option>Aprovado</option>
+									<option>Cancelado</option>
+								</select>
+							</div>
+							
 							<div class="col-sm-4">
 
 								<div class="form-group">
 
 									<label>    Data 	</label>
 									<div class="input-group">
-										<input type="text" class="fromDate form-control hasDatepicker" name="df" id="df" value="" placeholder="a partir de">
+										<input type="text" class="fromDate form-control hasDatepicker" name="dataderegistro" id="dataderegistro" value="" placeholder="a partir de">
 										<span class="input-group-text">-</span>
-										<input type="text" class="toDate form-control hasDatepicker" name="dt" id="dt" value="" placeholder="até a data">
-										<span class="input-group-text"><a href="javascript:;" onclick="$('#df,#dt').val('');"><i class="bi bi-arrow-clockwise"></i></a></span>
+										<input type="text" class="toDate form-control hasDatepicker" name="dataderegistro" id="dataderegistro" value="" placeholder="até a data">
+										<span class="input-group-text"><a href="javascript:;" onclick="$('#dataderegistro,#dt').val('');"><i class="bi bi-arrow-clockwise"></i></a></span>
 									</div>
 
 								</div>
@@ -139,10 +237,18 @@
 				<thead>
 					<tr class="bg-primary text-white">
 					    <!--<th>Sr#</th>---> 
-						<th>ID</th> <!----nome dos campos da tabela exemplo nome  idade  e-maail da tabela crud editar e deletar--->
 						<th>Nome do cliente</th>
-						<th>E-mail do cliente</th>
+						<th>Documento do cliente</th>
+						<th>Email do cliente</th>
 						<th>Telefone do cliente</th>
+						<th>CEP do cliente</th>
+						<th>Estado do cliente</th>
+						<th>Cidade do cliente</th>
+						<th>Bairro do cliente</th>
+						<th>Logradouro do cliente</th>
+						<th>Número do cliente</th>
+						<th>Complemento do cliente</th>
+						<th>Status do cliente</th>
 						<th class="text-center">Data do registro</th>
 						<th class="text-center">Action</th>
 					</tr>
@@ -156,14 +262,31 @@
 					?>
 					<tr>
 						<!--<td><php echo $s;?></td>--->
-						<td><?php echo $val['id'];?></td>
-						<td><?php echo $val['nome'];?></td>
-						<td><?php echo $val['email'];?></td>
-						<td><?php echo $val['telefone'];?></td>
-						<td align="center"><?php echo date('Y-m-d',strtotime($val['dt']));?></td>
+							<td><?php echo $val['Nome'];?></td>
+						    <td><?php echo $val['Documento'];?></td>
+							<td><?php echo $val['Email'];?></td>
+							<td><?php echo $val['Telefone'];?></td>
+							<td><?php echo $val['CEP'];?></td>
+							<td><?php echo $val['Estado'];?></td>
+							<td><?php echo $val['Cidade'];?></td>
+							<td><?php echo $val['Bairro'];?></td>
+							<td><?php echo $val['Logradouro'];?></td>
+							<td><?php echo $val['Numero'];?></td>
+							<td><?php echo $val['Complemento'];?></td>
+							<td><?php echo $val['Status'];?>
+								<select>
+									<option>Pendente</option>
+									<option>Aprovado</option>
+									<option>Cancelado</option>
+								</select>
+							</td>
+							<td align="center"><?php echo date('Y-m-d',strtotime($val['Data de Registro']));?></td>
+
+				
+						
 						<td align="center">
-							<a href="edit-users.php?editId=<?php echo $val['id'];?>" class="text-primary"><i class="bi bi-pencil-square"></i> Editar</a> | <!---botao de editar-->
-							<a href="delete.php?delId=<?php echo $val['id'];?>" class="text-danger" onClick="return confirm('Are you sure to delete this user?');"><i class="bi bi-trash"></i> Delete</a>
+							<a href="edit_user.php?editId='.$val['id'].'" class="text-primary">Editar</a>';
+							<a href="delete.php?delId='.$val['ID'].'" class="text-primary"><i class="bi bi-trash"></i>Deletar</a>;					
 						</td>
 
 					</tr>

@@ -18,7 +18,7 @@ if(
     die("Preencha todos os campos!!");
 }
 
-mysqli_query($conn, "INSERT INTO id(
+mysqli_query($conn, "INSERT INTO formclientes(
     nome,documento,email,telefone,cep,estado,cidade,bairro,logradouro,numero,complemento
     ) VALUES (
     '$_POST[nome]',

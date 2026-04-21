@@ -46,14 +46,15 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
                     'bairro'=>$bairro,
                     'logradouro'=>$logradouro,
 					'complemento'=>$complemento,
+					
 
 				);
-		$insert	=	$db->insert('dadoscliente',$data);
+		$insert	=	$db->insert('formclientes',$data);
 		if($insert){
-			header('location:browse-users.php?msg=ras');
+			header('location:browser_user.php?msg=ras');
 			exit;
 		}else{
-			header('location:browse-users.php?msg=rna');
+			header('location:browser_user.php?msg=rna');
 			exit;
 		}
 	}
@@ -110,18 +111,71 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
 				<div class="col-sm-6">
 					<h5 class="card-title">Campos com <span class="text-danger">*</span> são obrigatórios!</h5>
 					<form method="post">
-						<div class="mb-3">
-							<label>Nome do cliente <span class="text-danger">*</span></label>
-							<input type="text" name="nome" id="nome" class="form-control" placeholder="Digite o nome do cliente" required>
-						</div>
-						<div class="mb-3">
-							<label>E-mail do usuário <span class="text-danger">*</span></label>
-							<input type="email" name="email" id="email" class="form-control" placeholder="Digite o e-mail do cliente" required>
-						</div>
-						<div class="mb-3">
-							<label>Telefone do usuário <span class="text-danger">*</span></label>
-							<input type="tel" class="tel form-control" maxlength="15" name="telefone" id="telefone" x-autocompletetype="tel" placeholder="Digite o telefone do cliente" required>
-						</div>
+						<div class="form-group">
+									<label>Nome do usuário	</label><!----pesquisa por usuario--->
+									<input type="text" name="nome" id="nome" class="form-control" value="<?php echo isset($_REQUEST['nome'])?$_REQUEST['nome']:''?>" placeholder="Digite o cliente">
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="form-group">
+									<label>CPF/CPNJ do cliente</label>
+									<input type="number" name="documento" id="documento" class="form-control" value="<?php echo isset($_REQUEST['documento'])?$_REQUEST['documento']:''?>" placeholder="Digite o CPF/CNPJ">
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="form-group">
+									<label>E-mail do cliente</label>
+									<input type="email" name="email" id="email" class="form-control" value="<?php echo isset($_REQUEST['email'])?$_REQUEST['email']:''?>" placeholder="Digite o E-mail">
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="form-group">
+									<label>Telefone do cliente</label>
+									<input type="text" name="telefone" id="telefone" class="form-control" value="<?php echo isset($_REQUEST['telefone'])?$_REQUEST['telefone']:''?>" placeholder="Digite o Telefone">
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="form-group">
+									<label>CEP do cliente</label>
+									<input type="number" name="cep" id="cep" class="form-control" value="<?php echo isset($_REQUEST['cep'])?$_REQUEST['cep']:''?>" placeholder="Digite o CEP">
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="form-group">
+									<label>Estado do cliente</label>
+									<input type="text" name="estado" id="estado" class="form-control" value="<?php echo isset($_REQUEST['estado'])?$_REQUEST['estado']:''?>" placeholder="Digite o Estado">
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="form-group">
+									<label>Cidade do cliente</label>
+									<input type="text" name="cidade" id="cidade" class="form-control" value="<?php echo isset($_REQUEST['cidade'])?$_REQUEST['cidade']:''?>" placeholder="Digite a Cidade">
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="form-group">
+									<label>Bairro do cliente</label>
+									<input type="text" name="bairro" id="bairro" class="form-control" value="<?php echo isset($_REQUEST['bairro'])?$_REQUEST['bairro']:''?>" placeholder="Digite o Bairro">
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="form-group">
+									<label>Logradouro do cliente</label>
+									<input type="text" name="logradouro" id="logradouro" class="form-control" value="<?php echo isset($_REQUEST['logradouro'])?$_REQUEST['logradouro']:''?>" placeholder="Digite o Logradouro">
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="form-group">
+									<label>Número do cliente</label>
+									<input type="number" name="numero" id="numero" class="form-control" value="<?php echo isset($_REQUEST['numero'])?$_REQUEST['numero']:''?>" placeholder="Digite o Número">
+								</div>
+							</div>
+							<div class="col-sm-2">
+								<div class="form-group">
+									<label>Complemento do cliente</label>
+									<input type="text" name="complemento" id="complemento" class="form-control" value="<?php echo isset($_REQUEST['complemento'])?$_REQUEST['complemento']:''?>" placeholder="Digite o Complemento">
+								</div>
+							</div>
 						<div class="mb-3">
 							<button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary"><i class="bi bi-plus-circle"></i> Cadastrar cliente</button>
 						</div>
