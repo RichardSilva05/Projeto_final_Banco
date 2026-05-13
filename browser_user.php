@@ -5,17 +5,17 @@
 <head>
 	<meta charset="UTF-8"S>
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<title>PHP CRUD Pesquisar</title>
+	<title class="text-decoration-none">PHP CRUD Pesquisar</title>
 	
-	<!--<link rel="shortcut icon" href="https://demo.learncodeweb.com/favicon.ico"> esse e o icon --->
+	<link rel="shortcut icon" href="https://demo.learncodeweb.com/favicon.ico"> 
 	<link rel="stylesheet" href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css" type="text/css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!--[if lt IE 9]>
+	<HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries>
+	<!-[if lt IE 9]>
 	<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 	<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
+	<![endif]>
 </head>
 
 <body>
@@ -27,11 +27,11 @@
 					<div class="collapse navbar-collapse" id="navbarSupportedContent">
 						
 						<form method="get" action="#" class="d-flex my-2 my-lg-0">
-							<!--link desse crud https://learncodeweb.com-->
+							<link desse crud https://learncodeweb.com>
 							<div class="input-group input-group-md">
-								<!---<input type="text" class="form-control search-width" name="s" id="search" value="" placeholder="pesquisa barra menu de navegaçao..." aria-label="Search">--->
+								<input type="text" class="form-control search-width" name="s" id="search" value="" placeholder="pesquisa barra menu de navegaçao..." aria-label="Search">
 								<div>
-									<!----<button type="submit" class="btn btn-primary" id="searchBtn"><i class="bi bi-search"></i></button>--->
+									<button type="submit" class="btn btn-primary" id="searchBtn"><i class="bi bi-search"></i></button>
 								</div>
 							</div>
 						</form>
@@ -237,6 +237,7 @@
 				<thead>
 					<tr class="bg-primary text-white">
 					    <!--<th>Sr#</th>---> 
+						<th>ID</th>
 						<th>Nome do cliente</th>
 						<th>Documento do cliente</th>
 						<th>Email do cliente</th>
@@ -262,6 +263,7 @@
 					?>
 					<tr>
 						<!--<td><php echo $s;?></td>--->
+							<td><?php echo $val['id'];?></td>
 							<td><?php echo $val['Nome'];?></td>
 						    <td><?php echo $val['Documento'];?></td>
 							<td><?php echo $val['Email'];?></td>
@@ -285,8 +287,8 @@
 				
 						
 						<td align="center">
-							<a href="edit_user.php?editId='.$val['id'].'" class="text-primary">Editar</a>';
-							<a href="delete.php?delId='.$val['ID'].'" class="text-primary"><i class="bi bi-trash"></i>Deletar</a>;					
+							<a href="edit_user.php?editId=<?php echo $val['id']?>" class="text-primary"><i class="bi bi-pencil-square"></i></a> |
+							<a href="delete.php?delId=<?php echo $val['id']?>" class="text-danger" onClick="return confirm('Are you sure to delete this user?');"><i class="bi bi-trash"></i>
 						</td>
 
 					</tr>

@@ -106,7 +106,7 @@ if(isset($_REQUEST['submit']) and $_REQUEST['submit']!=""){
 		}
 		?>
 		<div class="card">
-			<div class="card-header"><i class="bi bi-plus-circle"></i> <strong>Cadastrar cliente</strong> <a href="browse-users.php" class="float-end btn btn-dark btn-sm"><i class="bi bi-globe"></i> Procurar clientes</a></div>
+			<div class="card-header"><i class="bi bi-plus-circle"></i> <strong>Cadastrar cliente</strong> <a href="browser_user.php" class="float-end btn btn-dark btn-sm"><i class="bi bi-globe"></i> Procurar clientes</a></div>
 			<div class="card-body">
 				<div class="col-sm-6">
 					<h5 class="card-title">Campos com <span class="text-danger">*</span> são obrigatórios!</h5>
